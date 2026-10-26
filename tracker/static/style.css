@@ -1,0 +1,86 @@
+:root {
+  --bg: #f4f5f7;
+  --card: #ffffff;
+  --text: #1d2330;
+  --muted: #6b7280;
+  --border: #dfe3ea;
+  --accent: #2563eb;
+  --danger: #dc2626;
+  --running: #15803d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header { padding: 20px 16px 4px; max-width: 900px; margin: 0 auto; }
+h1 { margin: 0; font-size: 24px; }
+h2 { margin: 0 0 12px; font-size: 18px; }
+main { max-width: 900px; margin: 0 auto; padding: 12px 16px 40px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.row { display: flex; gap: 8px; align-items: center; }
+.row.wrap { flex-wrap: wrap; }
+.row input:not([type="date"]) { flex: 1; min-width: 0; }
+
+input, select, button {
+  font: inherit;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  color: inherit;
+}
+label { display: flex; gap: 6px; align-items: center; }
+
+button { background: var(--accent); border-color: var(--accent); color: #fff; cursor: pointer; white-space: nowrap; }
+button.stop { background: var(--danger); border-color: var(--danger); }
+button:disabled { opacity: .55; cursor: progress; }
+
+.muted { color: var(--muted); }
+
+.notice {
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.employees { list-style: none; margin: 12px 0 0; padding: 0; }
+.employee {
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) 1fr;
+  gap: 8px 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.employee-name { font-weight: 600; overflow-wrap: anywhere; }
+.status { display: flex; gap: 8px; align-items: center; justify-content: space-between; }
+.status .task { color: var(--running); overflow-wrap: anywhere; }
+.elapsed { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); font-size: 13px; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tfoot td { font-weight: 700; border-bottom: none; }
+.table-wrap { overflow-x: auto; }
+
+@media (max-width: 560px) {
+  .employee { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Учёт рабочего времени</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Учёт рабочего времени</h1>
+  </header>
+
+  <main>
+    <div id="notice" class="notice" role="alert" hidden></div>
+
+    <section class="card">
+      <h2>Сотрудники</h2>
+      <form id="employee-form" class="row">
+        <input id="employee-name" placeholder="Имя сотрудника" maxlength="100" autocomplete="off" required>
+        <button type="submit">Добавить</button>
+      </form>
+      <p id="employees-empty" class="muted" hidden>Пока нет сотрудников — добавьте первого.</p>
+      <ul id="employees" class="employees"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Отчёт за период</h2>
+      <form id="report-form" class="row wrap">
+        <label>С <input type="date" id="date-from" required></label>
+        <label>По <input type="date" id="date-to" required></label>
+        <label>Сотрудник
+          <select id="report-employee"><option value="">Все</option></select>
+        </label>
+        <button type="submit">Показать</button>
+      </form>
+      <div id="report"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
